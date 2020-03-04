@@ -15,7 +15,7 @@ https://rocketo-com.github.io/shared
 
 ## Install
 
-You can install this modules as dependency throw `npm i git@github.com:rocketo-com/shared.git#COMMIT_HASH`
+You can install this modules as dependency throw `npm i git+ssh://git@github.com:rocketo-com/shared.git#COMMIT_HASH`
 
 Or you can use script from common-frontend module: `common-frontend/bin/update-shared.sh`.
 
