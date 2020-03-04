@@ -1,0 +1,13 @@
+<svg width="29px" height="29px" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-237.000000, -138.000000)" stroke="#FF2E63">
+      <g transform="translate(238.000000, 138.567688)">
+        <circle cx="13.5" cy="13.9323124" r="13.5"></circle>
+        <g id="Group-16" transform="translate(6.000000, 6.432312)" stroke-linecap="round">
+          <path d="M8,0 L8,14.3315443"></path>
+          <path d="M8,-1.04716236e-12 L8,14.3315443" transform="translate(8.000000, 7.165772) rotate(-90.000000) translate(-8.000000, -7.165772) "></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

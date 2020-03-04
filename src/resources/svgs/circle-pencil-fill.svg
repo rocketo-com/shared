@@ -1,0 +1,13 @@
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-12.000000, -83.000000)">
+      <g transform="translate(13.000000, 84.432312)">
+        <circle stroke="#FF2E63" fill="#FF2E63" cx="13.5" cy="13.5" r="13.5"></circle>
+        <path d="M10.7999957,19.8895641 L12.3465109,23.2197066 C12.3962502,23.3268112 12.4822932,23.4128542 12.5893978,23.4625935 C12.8398506,23.5789035 13.1371705,23.4701593 13.2534806,23.2197066 L14.7999957,19.8895641 L14.7999957,5 C14.7999957,4.72385763 14.5761381,4.5 14.2999957,4.5 L11.2999957,4.5 C11.0238534,4.5 10.7999957,4.72385763 10.7999957,5 L10.7999957,19.8895641 Z" id="Rectangle" stroke="#FFFFFF" transform="translate(12.799996, 14.004674) rotate(-315.000000) translate(-12.799996, -14.004674) "></path>
+        <path d="M6.41421356,17.8904563 L10.9142136,17.8904563" id="Path-7" stroke="#FFFFFF" transform="translate(8.914214, 17.890456) rotate(-315.000000) translate(-8.914214, -17.890456) "></path>
+        <path d="M6.5,19.3046699 L8.73034668,19.3046699" id="Path-9" stroke="#FFFFFF" transform="translate(7.500000, 19.304670) rotate(-315.000000) translate(-7.500000, -19.304670) "></path>
+        <path d="M14.8994949,9.40517495 L19.3994949,9.40517495" id="Path-9-Copy" stroke="#FFFFFF" transform="translate(17.399495, 9.405175) rotate(-315.000000) translate(-17.399495, -9.405175) "></path>
+      </g>
+    </g>
+  </g>
+</svg>

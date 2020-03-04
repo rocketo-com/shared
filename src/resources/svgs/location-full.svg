@@ -1,0 +1,11 @@
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-50.000000, -271.000000)">
+      <g transform="translate(50.000000, 271.000000)">
+        <circle fill="#DAD2D2" cx="19.5" cy="19.5" r="19.5"></circle>
+        <ellipse fill="#AFB4BD" cx="19.5" cy="28" rx="5.5" ry="2"></ellipse>
+        <path d="M19.5,10 C23.0898509,10 26,12.9734506 26,16.6413879 C26,20.0629285 23.8333333,23.8491326 19.5,28 C15.1666667,23.7197995 13,19.9335954 13,16.6413879 C13,12.9734506 15.9101491,10 19.5,10 Z M19.5,14 C18.1192881,14 17,15.1192881 17,16.5 C17,17.8807119 18.1192881,19 19.5,19 C20.8807119,19 22,17.8807119 22,16.5 C22,15.1192881 20.8807119,14 19.5,14 Z" id="Combined-Shape" fill="#FF2E63"></path>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="23px" height="28px" viewBox="0 0 23 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-1087.000000, -493.000000)">
+      <g transform="translate(1088.000000, 494.000000)">
+        <g>
+          <polygon id="Rectangle" stroke="#F5F5F7" stroke-width="2" fill="#D8D8D8" points="0 0 9.35797119 0 9.35797119 4.74235983 14 4.74235983 14 19 0 19"></polygon>
+          <polygon id="Path-65" fill="#989898" points="8.37215909 1.05743963 8.37215909 5.80442116 12.9607599 5.80442116"></polygon>
+        </g>
+        <g transform="translate(7.000000, 7.000000)">
+          <polygon stroke="#F5F5F7" stroke-width="2" fill="#D8D8D8" points="0 0 9.35797119 0 9.35797119 4.74235983 14 4.74235983 14 19 0 19"></polygon>
+          <polygon fill="#989898" points="8.37215909 1.05743963 8.37215909 5.80442116 12.9607599 5.80442116"></polygon>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+export const NOTICES_TYPES = {
+  INFO: 'INFO',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+  WARNING: 'WARNING',
+};
+
+export const NOTICES_TITLES = {
+  [NOTICES_TYPES.INFO]: 'Info',
+  [NOTICES_TYPES.SUCCESS]: 'Success',
+  [NOTICES_TYPES.ERROR]: 'Error',
+  [NOTICES_TYPES.WARNING]: 'Warning',
+};
