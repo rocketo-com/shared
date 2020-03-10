@@ -20,9 +20,21 @@ const typesSelect = (defaultValue = 'text') =>
     defaultValue,
   );
 
+const canEditSelect = (defaultValue = true) =>
+  select(
+    'canEdit',
+    {
+      true: true,
+      false: false,
+    },
+    defaultValue,
+  );
+
 stories.add('default', () => (
   <Card center>
-    <TextOrInput type={typesSelect()}>TextOrInput content</TextOrInput>
+    <TextOrInput type={typesSelect()} canEdit={canEditSelect()}>
+      TextOrInput content
+    </TextOrInput>
   </Card>
 ));
 

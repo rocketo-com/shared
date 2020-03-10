@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { isValidPhoneNumber as validatePhoneNumber } from 'react-phone-number-input';
 import { PhoneInput } from '../Input/styled';
 import { Fill as LoadingFill } from '../Loading';
-import Input from '../Input';
 import { validateEmail } from '../../utils/validate';
-import { Wrap, Text } from './styled';
+import { Wrap, Text, StyledIcon, StyledInput } from './styled';
 
 /**
  * It’s element which transform from string to input.
@@ -22,8 +21,8 @@ const validateByType = {
 };
 
 const inputByType = {
-  email: <Input />,
-  text: <Input />,
+  email: <StyledInput />,
+  text: <StyledInput />,
   phone: <PhoneInput />,
 };
 
@@ -41,7 +40,7 @@ const TextOrInput = ({
   onSave,
   onUpdate,
   inputSize = 'sm',
-  textOrInputType,
+  textOrInputType = 'text',
   type: inputType,
   ...props
 }) => {
@@ -50,6 +49,8 @@ const TextOrInput = ({
   const [value, setValue] = useState(children || '');
   const [isError, setIsError] = useState(false);
   const [isShakerAnimation, setIsShakerAnimation] = useState(false);
+
+  const isInput = type === 'input';
 
   const validate = validateByType[inputType] || (() => true);
 
@@ -162,7 +163,7 @@ const TextOrInput = ({
   };
 
   const renderInput = () => {
-    const input = inputByType[inputType] || <Input />;
+    const input = inputByType[inputType] || <StyledInput />;
 
     return React.cloneElement(input, {
       ...props,
@@ -183,9 +184,10 @@ const TextOrInput = ({
   const inputComponent = renderInput();
 
   return (
-    <Wrap>
+    <Wrap isInput={isInput} canEdit={canEdit}>
       {loading && <LoadingFill color="#08d9d6" size="sm" />}
-      {type === 'input' ? inputComponent : textComponent}
+      {isInput ? inputComponent : textComponent}
+      {!isInput && canEdit && <StyledIcon name="circle-pencil" width="27" height="28" />}
     </Wrap>
   );
 };
