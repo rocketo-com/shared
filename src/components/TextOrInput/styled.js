@@ -7,8 +7,7 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
 
-  ${({ isInput, canEdit }) =>
-    !isInput && canEdit ? 'cursor: pointer' : !canEdit && 'cursor: default'};
+  ${({ isInput, canEdit }) => !isInput && canEdit && 'cursor: pointer'};
 `;
 
 export const StyledIcon = styled(Icon)`
