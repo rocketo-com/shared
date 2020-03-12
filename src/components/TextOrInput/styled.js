@@ -44,3 +44,8 @@ export const Text = styled.span`
     display: none;
   }
 `;
+
+export const Placeholder = styled.span`
+  font-style: italic;
+  color: #999999;
+`;
