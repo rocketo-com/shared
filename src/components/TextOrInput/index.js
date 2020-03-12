@@ -42,6 +42,8 @@ const TextOrInput = ({
   inputSize = 'sm',
   textOrInputType = 'text',
   type: inputType,
+  // Useful when providing children
+  forceSave = false,
   ...props
 }) => {
   const [type, setType] = useState('text');
@@ -91,8 +93,8 @@ const TextOrInput = ({
       return;
     }
 
-    // Update value only if we have changes
-    if (children !== value) {
+    // Update value if we have changes or truthy forceSave
+    if (children !== value || forceSave) {
       try {
         setLoading(true);
 
