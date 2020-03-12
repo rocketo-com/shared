@@ -22,7 +22,7 @@ const logger = params => makeRequest(params);
   Each action (console.log, console.error, console.info, console.warn), when this happened,
   works as usual and made a call for remote server
 */
-const initializeRemoteLogging = (params = {}) => {
+const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
   const consoleLog = console.log;
   const consoleError = console.error;
   const consoleInfo = console.info;
@@ -31,6 +31,7 @@ const initializeRemoteLogging = (params = {}) => {
   console.log = (...args) => {
     try {
       consoleLog.apply(this, args);
+      const params = callbackWithParams();
 
       args.forEach(arg => makeRequest({ ...params, level: 'log', message: arg }));
     } catch (e) {
@@ -41,6 +42,7 @@ const initializeRemoteLogging = (params = {}) => {
   console.error = (...args) => {
     try {
       consoleError.apply(this, args);
+      const params = callbackWithParams();
 
       args.forEach(arg => makeRequest({ ...params, level: 'error', message: arg }));
     } catch (e) {
@@ -51,6 +53,7 @@ const initializeRemoteLogging = (params = {}) => {
   console.info = (...args) => {
     try {
       consoleInfo.apply(this, args);
+      const params = callbackWithParams();
 
       args.forEach(arg => makeRequest({ ...params, level: 'info', message: arg }));
     } catch (e) {
@@ -61,6 +64,7 @@ const initializeRemoteLogging = (params = {}) => {
   console.warn = (...args) => {
     try {
       consoleWarn.apply(this, args);
+      const params = callbackWithParams();
 
       args.forEach(arg => makeRequest({ ...params, level: 'warn', message: arg }));
     } catch (e) {
