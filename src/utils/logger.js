@@ -22,7 +22,7 @@ const logger = params => makeRequest(params);
   Each action (console.log, console.error, console.info, console.warn), when this happened,
   works as usual and made a call for remote server
 */
-const initializeRemoteLogging = callbackWithParams => {
+const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
   const consoleLog = console.log;
   const consoleError = console.error;
   const consoleInfo = console.info;
