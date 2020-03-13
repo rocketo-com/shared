@@ -157,8 +157,8 @@ const TextOrInput = ({
 
   const renderTextComponent = () => {
     const text = renderText || textByType[inputType] || <span />;
-    const element = value.length ? text : <Placeholder />;
-    const children = value.length ? value : placeholder;
+    const element = value && value.length ? text : <Placeholder />;
+    const children = value && value.length ? value : placeholder;
 
     return React.cloneElement(element, {
       children,
