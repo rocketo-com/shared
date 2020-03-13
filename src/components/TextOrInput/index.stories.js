@@ -31,7 +31,7 @@ const canEditSelect = (defaultValue = true) =>
   );
 
 stories.add('default', () => {
-  const placeholder = text('Placeholder', 'Placeholder');
+  const placeholder = text('placeholder', 'Placeholder');
 
   return (
     <Card center>

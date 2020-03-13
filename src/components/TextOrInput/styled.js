@@ -47,5 +47,5 @@ export const Text = styled.span`
 
 export const Placeholder = styled.span`
   font-style: italic;
-  color: #999999;
+  color: #9b9b9b;
 `;
