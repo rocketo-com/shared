@@ -31,22 +31,30 @@ const canEditSelect = (defaultValue = true) =>
   );
 
 stories.add('default', () => {
+  const value = text('value', 'TextOrInput content');
   const placeholder = text('placeholder', 'Placeholder');
 
   return (
     <Card center>
       <TextOrInput type={typesSelect()} canEdit={canEditSelect()} placeholder={placeholder}>
-        TextOrInput content
+        {value}
       </TextOrInput>
     </Card>
   );
 });
 
-stories.add('phone', () => (
-  <Card center>
-    <TextOrInput type="phone">+7931341792</TextOrInput>
-  </Card>
-));
+stories.add('phone', () => {
+  const value = text('value', '+7931341792');
+  const placeholder = text('placeholder', 'Placeholder');
+
+  return (
+    <Card center>
+      <TextOrInput type="phone" placeholder={placeholder} canEdit={canEditSelect()}>
+        {value}
+      </TextOrInput>
+    </Card>
+  );
+});
 
 stories.add('email', () => (
   <Card center>
