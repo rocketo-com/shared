@@ -3,7 +3,7 @@ import { isValidPhoneNumber as validatePhoneNumber } from 'react-phone-number-in
 import { PhoneInput } from '../Input/styled';
 import { Fill as LoadingFill } from '../Loading';
 import { validateEmail } from '../../utils/validate';
-import { Wrap, Text, StyledIcon, StyledInput } from './styled';
+import { Wrap, Text, StyledIcon, StyledInput, Placeholder } from './styled';
 
 /**
  * It’s element which transform from string to input.
@@ -39,6 +39,7 @@ const TextOrInput = ({
   renderText,
   onSave,
   onUpdate,
+  placeholder,
   inputSize = 'sm',
   textOrInputType = 'text',
   type: inputType,
@@ -156,9 +157,11 @@ const TextOrInput = ({
 
   const renderTextComponent = () => {
     const text = renderText || textByType[inputType] || <span />;
+    const element = value.length ? text : <Placeholder />;
+    const children = value.length ? value : placeholder;
 
-    return React.cloneElement(text, {
-      children: value,
+    return React.cloneElement(element, {
+      children,
       error: isError,
       ...(canEdit ? { onClick: () => setType('input') } : {}),
     });
@@ -179,6 +182,7 @@ const TextOrInput = ({
       onKeyUp,
       onBlur,
       value,
+      placeholder,
     });
   };
 
@@ -202,6 +206,7 @@ TextOrInput.defaultProps = {
   // onSave triggered when we have any results from onUpdate action and provide data or error from request
   onSave: () => {},
   canEdit: true,
+  placeholder: '',
 };
 
 export default TextOrInput;

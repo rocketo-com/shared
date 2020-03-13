@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import TextOrInput from './index';
 import Card from '../_storybookWrappers/Card';
 
@@ -30,13 +30,17 @@ const canEditSelect = (defaultValue = true) =>
     defaultValue,
   );
 
-stories.add('default', () => (
-  <Card center>
-    <TextOrInput type={typesSelect()} canEdit={canEditSelect()}>
-      TextOrInput content
-    </TextOrInput>
-  </Card>
-));
+stories.add('default', () => {
+  const placeholder = text('placeholder', 'Placeholder');
+
+  return (
+    <Card center>
+      <TextOrInput type={typesSelect()} canEdit={canEditSelect()} placeholder={placeholder}>
+        TextOrInput content
+      </TextOrInput>
+    </Card>
+  );
+});
 
 stories.add('phone', () => (
   <Card center>
