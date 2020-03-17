@@ -155,6 +155,12 @@ const TextOrInput = ({
     }
   };
 
+  const onClick = () => {
+    if (canEdit && !isInput) {
+      setType('input');
+    }
+  };
+
   const renderTextComponent = () => {
     const text = renderText || textByType[inputType] || <span />;
     const element = value && value.length ? text : <Placeholder />;
@@ -163,7 +169,6 @@ const TextOrInput = ({
     return React.cloneElement(element, {
       children,
       error: isError,
-      ...(canEdit ? { onClick: () => setType('input') } : {}),
     });
   };
 
@@ -190,7 +195,7 @@ const TextOrInput = ({
   const inputComponent = renderInput();
 
   return (
-    <Wrap isInput={isInput} canEdit={canEdit}>
+    <Wrap isInput={isInput} canEdit={canEdit} onClick={onClick}>
       {loading && <LoadingFill color="#08d9d6" size="sm" />}
       {isInput ? inputComponent : textComponent}
       {!isInput && canEdit && <StyledIcon name="circle-pencil" width="27" height="28" />}
