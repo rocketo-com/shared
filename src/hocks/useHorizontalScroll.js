@@ -15,7 +15,6 @@ const initialState = {
 };
 
 const reducer = (state, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case INIT:
       const { wrapper, track } = payload;

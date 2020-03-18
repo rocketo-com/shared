@@ -1,23 +1,10 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
-  position: relative;
-  z-index: 1;
-  overflow-y: hidden;
-`;
-
-export const HeaderInner = styled.div`
+export const Header = styled.div`
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: -30px;
   padding-bottom: 30px;
-  overflow-x: scroll;
-
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const HeaderItem = styled.div`
