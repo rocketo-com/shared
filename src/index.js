@@ -10,7 +10,7 @@ import Checkbox, { RFCheckbox } from './components/Checkbox';
 import Notices from './components/Notices';
 import Modal from './components/Modal';
 import TextOrInput from './components/TextOrInput';
-import MsgTemlates from './components/MsgTemplates';
+import HScrollBox from './components/HScrollBox';
 import * as constantsNotices from './constants/notices';
 import * as events from './events';
 import { initializeRemoteLogging, logger } from './utils/logger';
@@ -34,7 +34,7 @@ module.exports = {
   Notices,
   Modal,
   TextOrInput,
-  MsgTemlates,
+  HScrollBox,
 
   // Utils
   clickOutside,
