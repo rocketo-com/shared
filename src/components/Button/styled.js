@@ -4,32 +4,36 @@ const borders = {
   primary: '#08d9d6',
   secondary: '#ff2e63',
   default: '#919198',
+  light: '#dad2d2',
 };
 
 const backgrounds = {
   primary: '#08d9d6',
   secondary: '#ff2e63',
   default: '#fff',
+  light: '#fff',
 };
 
 const colors = {
   primary: '#fff',
   secondary: '#fff',
   default: '#919198',
+  light: '#0090ff',
 };
 
 export const Root = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
-  border-radius: 10px;
+  padding: ${({ variant }) => (variant === 'light' ? '6px 18px 8px' : '10px 25px')};
+  border-radius: ${({ variant }) => (variant === 'light' ? '18px' : '10px')};
   outline: none;
-  border: 2px solid ${({ variant }) => borders[variant]};
+  border: ${({ variant }) => (variant === 'light' ? '1px' : '2px')} solid
+    ${({ variant }) => borders[variant]};
   background: ${({ variant }) => backgrounds[variant]};
   font-family: Montserrat;
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${({ variant }) => (variant === 'light' ? 'normal' : 600)};
   font-size: 14px;
   line-height: 21px;
   color: ${({ variant }) => colors[variant]};
