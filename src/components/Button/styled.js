@@ -1,10 +1,37 @@
 import styled from 'styled-components';
 
-const borders = {
+const padding = {
+  primary: '10px 25px',
+  secondary: '10px 25px',
+  default: '10px 25px',
+  light: '6px 18px 8px',
+};
+
+const borderRadius = {
+  primary: '10px',
+  secondary: '10px',
+  default: '10px',
+  light: '18px',
+};
+const borderWidth = {
+  primary: '2px',
+  secondary: '2px',
+  default: '2px',
+  light: '1px',
+};
+
+const borderColor = {
   primary: '#08d9d6',
   secondary: '#ff2e63',
   default: '#919198',
   light: '#dad2d2',
+};
+
+const fontWeigth = {
+  primary: 600,
+  secondary: 600,
+  default: 600,
+  light: 'normal',
 };
 
 const backgrounds = {
@@ -25,15 +52,14 @@ export const Root = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ variant }) => (variant === 'light' ? '6px 18px 8px' : '10px 25px')};
-  border-radius: ${({ variant }) => (variant === 'light' ? '18px' : '10px')};
+  padding: ${({ variant }) => padding[variant]};
+  border-radius: ${({ variant }) => borderRadius[variant]};
   outline: none;
-  border: ${({ variant }) => (variant === 'light' ? '1px' : '2px')} solid
-    ${({ variant }) => borders[variant]};
+  border: ${({ variant }) => borderWidth[variant]} solid ${({ variant }) => borderColor[variant]};
   background: ${({ variant }) => backgrounds[variant]};
   font-family: Montserrat;
   font-style: normal;
-  font-weight: ${({ variant }) => (variant === 'light' ? 'normal' : 600)};
+  font-weight: ${({ variant }) => fontWeigth[variant]};
   font-size: 14px;
   line-height: 21px;
   color: ${({ variant }) => colors[variant]};

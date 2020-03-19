@@ -8,8 +8,8 @@ const SCROLL_IN_END = 'SCROLL_IN_END';
 
 const initialState = {
   isScroll: true,
-  isStart: false,
-  isEnd: false,
+  isStart: true,
+  isEnd: true,
   wrapperWidth: 0,
   trackWidth: 0,
 };

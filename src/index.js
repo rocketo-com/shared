@@ -14,6 +14,7 @@ import HScrollBox from './components/HScrollBox';
 import * as constantsNotices from './constants/notices';
 import * as events from './events';
 import { initializeRemoteLogging, logger } from './utils/logger';
+import { useHorizontalScroll } from './hooks/useHorizontalScroll';
 
 // @TODO: need to finish develop ThemeProvider and export for use
 // import ThemeProvider from './components/ThemeProvider';
@@ -38,6 +39,9 @@ module.exports = {
 
   // Utils
   clickOutside,
+
+  // Hooks
+  useHorizontalScroll,
 
   // Events
   events,

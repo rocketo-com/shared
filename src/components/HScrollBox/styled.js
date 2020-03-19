@@ -17,14 +17,23 @@ export const Wrapper = styled.div`
     height: 100%;
     pointer-events: none;
     transition: 0.5s box-shadow;
-    box-shadow: ${({ isStart, isEnd }) =>
-      !isStart && !isEnd
-        ? `inset 20px 0 10px -10px rgba(205, 205, 205, 0.418652), inset -20px 0 10px -10px rgba(205, 205, 205, 0.418652)`
-        : !isStart
-        ? `inset 20px 0 10px -10px rgba(205, 205, 205, 0.418652)`
-        : !isEnd
-        ? `inset -20px 0 10px -10px rgba(205, 205, 205, 0.418652)`
-        : `none`};
+    box-shadow: ${({ isStart, isEnd }) => {
+      const isMiddle = !isStart && !isEnd;
+
+      if (isMiddle) {
+        return `inset 20px 0 10px -10px rgba(205, 205, 205, 0.4), inset -20px 0 10px -10px rgba(205, 205, 205, 0.4)`;
+      }
+
+      if (isStart) {
+        return `inset -20px 0 10px -10px rgba(205, 205, 205, 0.4)`;
+      }
+
+      if (isEnd) {
+        return `inset 20px 0 10px -10px rgba(205, 205, 205, 0.4)`;
+      }
+
+      return `none`;
+    }};
   }
 `;
 

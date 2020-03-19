@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper, Track } from './styled';
-import { useHorizontalScroll } from '../../hocks/useHorizontalScroll';
+import { useHorizontalScroll } from '../../hooks/useHorizontalScroll';
 
 const HScrollBox = ({ children }) => {
   const { handlers, isStart, isEnd } = useHorizontalScroll();

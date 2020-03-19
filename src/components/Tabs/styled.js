@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Header = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  margin-bottom: -30px;
-  padding-bottom: 30px;
 `;
 
 export const HeaderItem = styled.div`
