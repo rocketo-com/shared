@@ -19,9 +19,14 @@ export const Wrapper = styled.div`
     transition: 0.5s box-shadow;
     box-shadow: ${({ isStart, isEnd }) => {
       const isMiddle = !isStart && !isEnd;
+      const isNotScroll = isStart && isEnd;
 
       if (isMiddle) {
         return `inset 20px 0 10px -10px rgba(205, 205, 205, 0.4), inset -20px 0 10px -10px rgba(205, 205, 205, 0.4)`;
+      }
+
+      if (isNotScroll) {
+        return `none`;
       }
 
       if (isStart) {
@@ -31,8 +36,6 @@ export const Wrapper = styled.div`
       if (isEnd) {
         return `inset 20px 0 10px -10px rgba(205, 205, 205, 0.4)`;
       }
-
-      return `none`;
     }};
   }
 `;
