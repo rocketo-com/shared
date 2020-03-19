@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Header, HeaderInner, HeaderItem, ContentItem, Content } from './styled';
+import { Header, HeaderItem, ContentItem, Content } from './styled';
+import HScrollBox from '../HScrollBox';
 
 const Tabs = ({ tabs, value, onChange, maxTabTextLength }) => {
   const firstTab = tabs[0];
@@ -57,9 +58,9 @@ const Tabs = ({ tabs, value, onChange, maxTabTextLength }) => {
 
   return (
     <section>
-      <Header>
-        <HeaderInner>{header}</HeaderInner>
-      </Header>
+      <HScrollBox>
+        <Header>{header}</Header>
+      </HScrollBox>
       <Content>{content}</Content>
     </section>
   );
