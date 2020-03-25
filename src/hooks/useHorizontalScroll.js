@@ -61,11 +61,14 @@ export const useHorizontalScroll = (isUseTouch = true, isUseWheel = true) => {
   const [offset, setOffset] = useState(0);
   const [first, setFirst] = useState(null);
 
-  const onResize = () =>
-    dispatch({
-      type: INIT,
-      payload: { wrapper, track },
-    });
+  const onResize = () => {
+    if (wrapper && track) {
+      dispatch({
+        type: INIT,
+        payload: { wrapper, track },
+      });
+    }
+  };
 
   const onDrag = offset => {
     if (offset >= state.trackWidth - state.wrapperWidth) {
