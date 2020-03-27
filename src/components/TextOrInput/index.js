@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { isValidPhoneNumber as validatePhoneNumber } from 'react-phone-number-input';
 import { PhoneInput } from '../Input/styled';
 import { Fill as LoadingFill } from '../Loading';
-import Input from '../Input';
 import { validateEmail } from '../../utils/validate';
-import { Wrap, Text } from './styled';
+import { Wrap, Text, StyledIcon, StyledInput, Placeholder } from './styled';
 
 /**
  * It’s element which transform from string to input.
@@ -22,8 +21,8 @@ const validateByType = {
 };
 
 const inputByType = {
-  email: <Input />,
-  text: <Input />,
+  email: <StyledInput />,
+  text: <StyledInput />,
   phone: <PhoneInput />,
 };
 
@@ -40,9 +39,12 @@ const TextOrInput = ({
   renderText,
   onSave,
   onUpdate,
+  placeholder,
   inputSize = 'sm',
-  textOrInputType,
+  textOrInputType = 'text',
   type: inputType,
+  // Useful when providing children
+  forceSave = false,
   ...props
 }) => {
   const [type, setType] = useState('text');
@@ -50,6 +52,8 @@ const TextOrInput = ({
   const [value, setValue] = useState(children || '');
   const [isError, setIsError] = useState(false);
   const [isShakerAnimation, setIsShakerAnimation] = useState(false);
+
+  const isInput = type === 'input';
 
   const validate = validateByType[inputType] || (() => true);
 
@@ -90,8 +94,8 @@ const TextOrInput = ({
       return;
     }
 
-    // Update value only if we have changes
-    if (children !== value) {
+    // Update value if we have changes or truthy forceSave
+    if (children !== value || forceSave) {
       try {
         setLoading(true);
 
@@ -151,18 +155,25 @@ const TextOrInput = ({
     }
   };
 
+  const onClick = () => {
+    if (canEdit && !isInput) {
+      setType('input');
+    }
+  };
+
   const renderTextComponent = () => {
     const text = renderText || textByType[inputType] || <span />;
+    const element = value && value.length ? text : <Placeholder />;
+    const children = value && value.length ? value : placeholder;
 
-    return React.cloneElement(text, {
-      children: value,
+    return React.cloneElement(element, {
+      children,
       error: isError,
-      ...(canEdit ? { onClick: () => setType('input') } : {}),
     });
   };
 
   const renderInput = () => {
-    const input = inputByType[inputType] || <Input />;
+    const input = inputByType[inputType] || <StyledInput />;
 
     return React.cloneElement(input, {
       ...props,
@@ -176,6 +187,7 @@ const TextOrInput = ({
       onKeyUp,
       onBlur,
       value,
+      placeholder,
     });
   };
 
@@ -183,9 +195,10 @@ const TextOrInput = ({
   const inputComponent = renderInput();
 
   return (
-    <Wrap>
+    <Wrap isInput={isInput} canEdit={canEdit} onClick={onClick}>
       {loading && <LoadingFill color="#08d9d6" size="sm" />}
-      {type === 'input' ? inputComponent : textComponent}
+      {isInput ? inputComponent : textComponent}
+      {!isInput && canEdit && <StyledIcon name="circle-pencil" width="27" height="28" />}
     </Wrap>
   );
 };
@@ -198,6 +211,7 @@ TextOrInput.defaultProps = {
   // onSave triggered when we have any results from onUpdate action and provide data or error from request
   onSave: () => {},
   canEdit: true,
+  placeholder: '',
 };
 
 export default TextOrInput;

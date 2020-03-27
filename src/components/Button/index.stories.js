@@ -23,6 +23,7 @@ const variantsSelect = (defaultValue = 'default') =>
       primary: 'primary',
       secondary: 'secondary',
       default: 'default',
+      light: 'light',
     },
     defaultValue,
   );

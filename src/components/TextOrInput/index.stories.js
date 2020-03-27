@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import TextOrInput from './index';
 import Card from '../_storybookWrappers/Card';
 
@@ -20,17 +20,41 @@ const typesSelect = (defaultValue = 'text') =>
     defaultValue,
   );
 
-stories.add('default', () => (
-  <Card center>
-    <TextOrInput type={typesSelect()}>TextOrInput content</TextOrInput>
-  </Card>
-));
+const canEditSelect = (defaultValue = true) =>
+  select(
+    'canEdit',
+    {
+      true: true,
+      false: false,
+    },
+    defaultValue,
+  );
 
-stories.add('phone', () => (
-  <Card center>
-    <TextOrInput type="phone">+7931341792</TextOrInput>
-  </Card>
-));
+stories.add('default', () => {
+  const value = text('value', 'TextOrInput content');
+  const placeholder = text('placeholder', 'Placeholder');
+
+  return (
+    <Card center>
+      <TextOrInput type={typesSelect()} canEdit={canEditSelect()} placeholder={placeholder}>
+        {value}
+      </TextOrInput>
+    </Card>
+  );
+});
+
+stories.add('phone', () => {
+  const value = text('value', '+7931341792');
+  const placeholder = text('placeholder', 'Placeholder');
+
+  return (
+    <Card center>
+      <TextOrInput type="phone" placeholder={placeholder} canEdit={canEditSelect()}>
+        {value}
+      </TextOrInput>
+    </Card>
+  );
+});
 
 stories.add('email', () => (
   <Card center>
