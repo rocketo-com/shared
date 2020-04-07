@@ -42,7 +42,7 @@ const TextOrInput = ({
   placeholder,
   inputSize = 'sm',
   textOrInputType = 'text',
-  type: inputType,
+  type: inputType = 'text',
   // Useful when providing children
   forceSave = false,
   ...props
