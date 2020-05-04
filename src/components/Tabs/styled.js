@@ -30,15 +30,6 @@ export const HeaderItem = styled.div`
   `}
 `;
 
-export const ContentItem = styled.div`
-  display: none;
-  ${({ isActive }) =>
-    isActive &&
-    `
-      display: block;
-    `}
-`;
-
 export const Content = styled.div`
   margin-top: -1px;
   border-top: 1px solid #cdcdcd;

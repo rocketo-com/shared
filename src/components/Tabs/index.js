@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, HeaderItem, ContentItem, Content } from './styled';
+import { Header, HeaderItem, Content } from './styled';
 import HScrollBox from '../HScrollBox';
 
 const Tabs = ({ tabs, value, onChange, maxTabTextLength }) => {
@@ -48,13 +48,8 @@ const Tabs = ({ tabs, value, onChange, maxTabTextLength }) => {
 
   const header = tabs.map(tab => renderHeaderItem(tab));
 
-  const renderContentItem = tab => (
-    <ContentItem key={tab.key} isActive={getIsActive(tab.key)}>
-      {tab.content(tab)}
-    </ContentItem>
-  );
-
-  const content = tabs.map(tab => renderContentItem(tab));
+  const activeTab = tabs.find(tab => getIsActive(tab.key));
+  const content = activeTab.content(activeTab);
 
   return (
     <section>
