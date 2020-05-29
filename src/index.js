@@ -1,7 +1,7 @@
 import clickOutside from './utils/clickOutside';
 import Button from './components/Button';
 import Icon from './components/Icon';
-import Input, { RFInput } from './components/Input';
+import Input, { RFInput, Label } from './components/Input';
 import * as Loading from './components/Loading/index';
 import Tabs from './components/Tabs';
 import Tooltip from './components/Tooltip';
@@ -24,6 +24,7 @@ module.exports = {
   Button,
   Icon,
   Input,
+  Label,
   Loading,
   Select,
   RFInput,

@@ -77,4 +77,6 @@ export const RFInput = forwardRef(({ input, meta, ...props }, ref) => (
   <Input ref={ref} {...input} {...meta} {...props} />
 ));
 
+export { Label };
+
 export default Input;
