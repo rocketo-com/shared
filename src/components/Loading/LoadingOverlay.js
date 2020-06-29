@@ -26,10 +26,11 @@ const Overlay = styled.div`
   background: #f5f5f7;
 `;
 
-const LoadingOverlay = (props) => (
+const LoadingOverlay = ({ text, ...props }) => (
   <Root>
     <Overlay />
     <LoadingRing {...props} />
+    {text}
   </Root>
 );
 

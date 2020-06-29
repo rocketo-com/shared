@@ -18,9 +18,10 @@ const Root = styled.div`
   opacity: 0.7;
 `;
 
-const LoadingFill = ({ color = '#fff', size = 'md', className }) => (
+const LoadingFill = ({ color = '#fff', size = 'md', className, text }) => (
   <Root className={className}>
     <Loading size={size} color={color} />
+    {text}
   </Root>
 );
 

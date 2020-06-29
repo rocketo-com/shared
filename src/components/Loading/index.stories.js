@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import LoadingRing from './LoadingRing';
 import LoadingFill from './LoadingFill';
 import LoadingOverlay from './LoadingOverlay';
@@ -21,13 +21,17 @@ stories.add('ring', () => (
   </Card>
 ));
 
-stories.add('fill', () => (
-  <Card center>
-    <PseudoButton>
-      <LoadingFill />
-    </PseudoButton>
-  </Card>
-));
+stories.add('fill', () => {
+  const progressText = text('text', '');
+
+  return (
+    <Card center>
+      <PseudoButton>
+        <LoadingFill text={progressText} />
+      </PseudoButton>
+    </Card>
+  );
+});
 
 const sizesLoading = (defaultValue = 'lg') =>
   select(
@@ -45,9 +49,13 @@ stories.add('with sizes', () => (
   </Card>
 ));
 
-stories.add('overlay', () => (
-  <Card empty>
-    Some text or blocks which was hidden under overlay
-    <LoadingOverlay />
-  </Card>
-));
+stories.add('overlay', () => {
+  const progressText = text('text', '');
+
+  return (
+    <Card empty>
+      Some text or blocks which was hidden under overlay
+      <LoadingOverlay text={progressText} />
+    </Card>
+  );
+});
