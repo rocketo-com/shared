@@ -12,7 +12,7 @@ const Input = forwardRef((props, ref) => {
     error,
     label,
     touched,
-    value,
+    value = '',
     onChange,
     type,
     flat,
