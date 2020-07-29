@@ -83,7 +83,7 @@ export const StyledInput = styled.input`
     error &&
     `
     border: 1px solid red;
-  `}
+  `};
 
   :disabled {
     cursor: not-allowed;

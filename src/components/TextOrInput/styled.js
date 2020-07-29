@@ -38,7 +38,7 @@ export const Text = styled.span`
     padding: 1px 5px;
     color: #ff2e63;
     background: #ffe5ec;
-  `}
+  `};
 
   :empty {
     display: none;

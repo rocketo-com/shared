@@ -46,7 +46,7 @@ export const Icon = styled.div`
     checked &&
     css`
       animation-name: ${clickBox};
-    `}
+    `};
 
   :after,
   :before {
