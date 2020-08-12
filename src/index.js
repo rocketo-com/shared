@@ -1,4 +1,5 @@
 import clickOutside from './utils/clickOutside';
+import Avatar from './components/Avatar';
 import Button from './components/Button';
 import Icon from './components/Icon';
 import Input, { RFInput, Label } from './components/Input';
@@ -21,6 +22,7 @@ import { useHorizontalScroll } from './hooks/useHorizontalScroll';
 
 module.exports = {
   // Components
+  Avatar,
   Button,
   Icon,
   Input,
