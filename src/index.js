@@ -2,6 +2,7 @@ import clickOutside from './utils/clickOutside';
 import Avatar from './components/Avatar';
 import Button from './components/Button';
 import Icon from './components/Icon';
+import IconText from './components/IconText';
 import Input, { RFInput, Label } from './components/Input';
 import * as Loading from './components/Loading/index';
 import Tabs from './components/Tabs';
@@ -25,6 +26,7 @@ module.exports = {
   Avatar,
   Button,
   Icon,
+  IconText,
   Input,
   Label,
   Loading,
