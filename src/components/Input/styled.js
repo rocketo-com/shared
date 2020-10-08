@@ -96,8 +96,6 @@ export const StyledInput = styled.input`
     `}
 `;
 
-export const PhoneInput = props => <StyledInput as={Phone} {...props} />;
-
 export const Error = styled.div`
   position: absolute;
   bottom: -26px;
