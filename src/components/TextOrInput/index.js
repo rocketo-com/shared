@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { isValidPhoneNumber as validatePhoneNumber } from 'react-phone-number-input';
-import { PhoneInput } from '../Input/styled';
+import InputPhone from '../InputPhone/';
 import { Fill as LoadingFill } from '../Loading';
 import { validateEmail } from '../../utils/validate';
 import { Wrap, Text, StyledIcon, StyledInput, Placeholder } from './styled';
@@ -23,7 +23,7 @@ const validateByType = {
 const inputByType = {
   email: <StyledInput />,
   text: <StyledInput />,
-  phone: <PhoneInput />,
+  phone: <InputPhone />,
 };
 
 const textByType = {
@@ -175,20 +175,44 @@ const TextOrInput = ({
   const renderInput = () => {
     const input = inputByType[inputType] || <StyledInput />;
 
-    return React.cloneElement(input, {
-      ...props,
-      type: inputType,
-      size: inputSize,
-      touched: isError,
-      error: isError,
-      autoFocus: true,
-      isShakerAnimation,
-      onChange,
-      onKeyUp,
-      onBlur,
-      value,
-      placeholder,
-    });
+    let p;
+    if (inputType === 'phone') {
+      // @todo Review these props.
+      p = {
+        ...props,
+        inputProps: {
+          autoFocus: true,
+          disabled: props.disabled ? props.disabled : undefined,
+          name: props.name ? props.name : undefined,
+          required: props.required ? props.required : undefined,
+        },
+        size: inputSize,
+        touched: isError,
+        error: isError,
+        isShakerAnimation,
+        onChange,
+        onKeyUp,
+        onBlur,
+        value,
+        placeholder,
+      };
+    } else {
+      p = {
+        ...props,
+        type: inputType,
+        size: inputSize,
+        touched: isError,
+        error: isError,
+        autoFocus: true,
+        isShakerAnimation,
+        onChange,
+        onKeyUp,
+        onBlur,
+        value,
+        placeholder,
+      };
+    }
+    return React.cloneElement(input, p);
   };
 
   const textComponent = renderTextComponent();
