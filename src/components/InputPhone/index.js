@@ -4,7 +4,6 @@ import PhoneInput from 'react-phone-input-2';
 import { validatePhoneNumber } from 'rocketo-helpers';
 import styled from 'styled-components';
 import { Label } from '../Input';
-import { Wrap } from '../Input/styled';
 
 export default styled(({ className, label, ...props }) => (
   <div className={className}>
