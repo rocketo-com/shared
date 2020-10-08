@@ -32,7 +32,8 @@ const typesSelect = (defaultValue = 'text') =>
     'type',
     {
       text: 'text',
-      phone: 'phone',
+      // @deprecated Use InputPhone instead
+      'phone (deprecated)': 'phone',
       number: 'number',
     },
     defaultValue,
