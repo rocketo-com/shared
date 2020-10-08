@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Icon from './components/Icon';
 import IconText from './components/IconText';
 import Input, { RFInput, Label } from './components/Input';
+import InputPhone from './components/InputPhone';
 import * as Loading from './components/Loading/index';
 import Tabs from './components/Tabs';
 import Tooltip from './components/Tooltip';
@@ -28,6 +29,7 @@ module.exports = {
   Icon,
   IconText,
   Input,
+  InputPhone,
   Label,
   Loading,
   Select,
