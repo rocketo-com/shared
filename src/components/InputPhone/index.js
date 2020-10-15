@@ -14,7 +14,7 @@ export default styled(({ className, label, onChange = () => {}, ...props }) => (
         enableLongNumbers // For better UX on paste local phone numbers.
         isValid={phone => validatePhoneNumber(`+${phone}`)}
         inputClass="phone-number-input"
-        onChange={(_1, _2, event) => onChange(event)}
+        onChange={phone => onChange(`+${phone}`)}
         {...props}
       />
     </Label>
