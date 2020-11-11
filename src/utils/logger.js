@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
 import axios from 'axios';
+import { serializeError } from 'serialize-error';
 
 // We decided to use hardcoded value for now, cause we have troubles with passed env variables to the _shared
 const LOGSTASH_URL = 'https://felogs.rocketo.com';
@@ -14,6 +15,15 @@ const makeRequest = data =>
     'Access-Control-Max-Age': 0,
     data,
   });
+
+const transformDataToMsg = arg => {
+  if (arg instanceof Error) {
+    // The error serialization returns empty object as the keys are not enumerable.
+    // See https://stackoverflow.com/questions/18391212/is-it-not-possible-to-stringify-an-error-using-json-stringify
+    return serializeError(arg);
+  }
+  return arg;
+};
 
 const logger = params => makeRequest(params);
 
@@ -33,7 +43,9 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleLog.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg => makeRequest({ ...params, level: 'log', message: arg }));
+      args.forEach(arg =>
+        makeRequest({ ...params, level: 'log', message: transformDataToMsg(arg) }),
+      );
     } catch (e) {
       consoleError(e);
     }
@@ -44,7 +56,9 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleError.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg => makeRequest({ ...params, level: 'error', message: arg }));
+      args.forEach(arg =>
+        makeRequest({ ...params, level: 'error', message: transformDataToMsg(arg) }),
+      );
     } catch (e) {
       consoleError(e);
     }
@@ -55,7 +69,9 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleInfo.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg => makeRequest({ ...params, level: 'info', message: arg }));
+      args.forEach(arg =>
+        makeRequest({ ...params, level: 'info', message: transformDataToMsg(arg) }),
+      );
     } catch (e) {
       consoleError(e);
     }
@@ -66,7 +82,9 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleWarn.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg => makeRequest({ ...params, level: 'warn', message: arg }));
+      args.forEach(arg =>
+        makeRequest({ ...params, level: 'warn', message: transformDataToMsg(arg) }),
+      );
     } catch (e) {
       consoleError(e);
     }
