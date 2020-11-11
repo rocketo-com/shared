@@ -43,9 +43,7 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleLog.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg =>
-        makeRequest({ ...params, level: 'log', message: transformDataToMsg(arg) }),
-      );
+      args.forEach(arg => makeRequest({ params, level: 'log', message: transformDataToMsg(arg) }));
     } catch (e) {
       consoleError(e);
     }
@@ -57,7 +55,7 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       const params = callbackWithParams();
 
       args.forEach(arg =>
-        makeRequest({ ...params, level: 'error', message: transformDataToMsg(arg) }),
+        makeRequest({ params, level: 'error', message: transformDataToMsg(arg) }),
       );
     } catch (e) {
       consoleError(e);
@@ -69,9 +67,7 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleInfo.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg =>
-        makeRequest({ ...params, level: 'info', message: transformDataToMsg(arg) }),
-      );
+      args.forEach(arg => makeRequest({ params, level: 'info', message: transformDataToMsg(arg) }));
     } catch (e) {
       consoleError(e);
     }
@@ -82,9 +78,7 @@ const initializeRemoteLogging = (callbackWithParams = () => ({})) => {
       consoleWarn.apply(this, args);
       const params = callbackWithParams();
 
-      args.forEach(arg =>
-        makeRequest({ ...params, level: 'warn', message: transformDataToMsg(arg) }),
-      );
+      args.forEach(arg => makeRequest({ params, level: 'warn', message: transformDataToMsg(arg) }));
     } catch (e) {
       consoleError(e);
     }
