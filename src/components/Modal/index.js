@@ -4,6 +4,8 @@ import { Ring } from '../Loading';
 import { Inner, Header, Overlay, Title, StyledIcon, Buttons } from './styled';
 
 const Modal = ({
+  onClose,
+  onOpen,
   open,
   children,
   openBy,
@@ -15,8 +17,14 @@ const Modal = ({
 }) => {
   const [isOpen, setIsOpen] = useState(open);
 
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+    onOpen && onOpen();
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose && onClose();
+  };
 
   useEffect(() => {
     setIsOpen(open);
