@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { isValidPhoneNumber as validatePhoneNumber } from 'react-phone-number-input';
+import { phoneNumber } from 'rocketo-helpers';
 import InputPhone from '../InputPhone/';
 import { Fill as LoadingFill } from '../Loading';
 import { validateEmail } from '../../utils/validate';
 import { Wrap, Text, StyledIcon, StyledInput, Placeholder } from './styled';
+
+const { validate: validatePhone } = phoneNumber;
 
 /**
  * It’s element which transform from string to input.
@@ -17,7 +19,7 @@ import { Wrap, Text, StyledIcon, StyledInput, Placeholder } from './styled';
 
 const validateByType = {
   email: validateEmail,
-  phone: validatePhoneNumber,
+  phone: validatePhone,
 };
 
 const inputByType = {
