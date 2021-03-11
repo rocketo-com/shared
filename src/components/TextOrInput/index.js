@@ -62,10 +62,8 @@ const TextOrInput = ({
   useEffect(() => {
     const isValid = validate(value);
 
-    if (!isValid) {
-      setIsError(true);
-    }
-  }, []);
+    setIsError(!isValid);
+  }, [value]);
 
   useEffect(() => {
     if (type !== textOrInputType) {
