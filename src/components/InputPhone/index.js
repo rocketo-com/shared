@@ -1,9 +1,11 @@
 import 'react-phone-input-2/lib/style.css';
 import React from 'react';
 import PhoneInput from 'react-phone-input-2';
-import { validatePhoneNumber } from 'rocketo-helpers';
+import { phoneNumber } from 'rocketo-helpers';
 import styled from 'styled-components';
 import { Label } from '../Input';
+
+const { validate: validatePhone } = phoneNumber;
 
 export default styled(({ className, label, onChange = () => {}, ...props }) => (
   <div className={className}>
@@ -12,7 +14,7 @@ export default styled(({ className, label, onChange = () => {}, ...props }) => (
       <PhoneInput
         buttonClass="phone-number-button"
         enableLongNumbers // For better UX on paste local phone numbers.
-        isValid={phone => validatePhoneNumber(`+${phone}`)}
+        isValid={phone => validatePhone(`+${phone}`)}
         inputClass="phone-number-input"
         onChange={phone => onChange(`+${phone}`)}
         {...props}
