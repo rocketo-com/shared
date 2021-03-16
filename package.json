@@ -35,7 +35,7 @@
     "react-portal": "^4.2.0",
     "react-swipeable": "^5.5.1",
     "react-transition-group": "^4.3.0",
-    "rocketo-helpers": "git+ssh://git@rocketo.bitbucket.org/teamrocketo/rocketo-helpers.git#e80d0c5504df2f0b259468023e0ef7eb73d4fa89",
+    "rocketo-helpers": "git+ssh://git@rocketo.bitbucket.org/teamrocketo/rocketo-helpers.git#0eb380f153113b0160d95848fd967d4ad38bf8cd",
     "serialize-error": "^7.0.1",
     "styled-components": "^4.3.2",
     "svg-sprite-loader": "^4.1.6",
